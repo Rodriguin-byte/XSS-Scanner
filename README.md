@@ -1,56 +1,41 @@
-# XSS VULNERABILITY SCANNER (TEST VERSION)
-Version: 1.0
-Language: Python 3.6+
-Author: Cybersecurity Student
+#  XSS Vulnerability Scanner - Simple Test Version
 
-## LEGAL DISCLAIMER
-THIS TOOL IS FOR EDUCATIONAL PURPOSES AND AUTHORIZED SECURITY TESTING ONLY.
-Unauthorized use of this tool against systems without explicit permission is illegal. The user is solely responsible for any damage or legal repercussions resulting from the use of this script.
+[![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)](CONTRIBUTING.md)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/seu-usuario/xss-scanner/graphs/commit-activity)
 
-## SETUP - PREREQUISITES
-To run this script, you must have the following installed on your system:
+Uma ferramenta simples e educacional para deteção de vulnerabilidades de Cross-Site Scripting (XSS). Desenvolvida para fins de aprendizagem e testes autorizados.
 
-Python 3.6 or higher.
+##  Sobre o Projeto
 
-The 'pip' package manager.
+O XSS Scanner é uma ferramenta leve e didática desenvolvida para ajudar estudantes de segurança e profissionais a compreenderem como funciona a deteção de vulnerabilidades XSS. Esta versão simples demonstra os conceitos fundamentais de:
 
-## SETUP - INSTALLATION
-Before running the scanner, you need to install the required Python libraries. Open your terminal or command prompt and run:
+-  **Deteção de formulários** em páginas web
+-  **Análise de inputs** e parâmetros
+-  **Teste de payloads XSS** básicos
+-  **Verificação de reflexão** de payloads na resposta
 
+###  Funcionalidades Atuais
 
-pip install requests beautifulsoup4 urllib3
-SETUP - EXECUTION (USAGE)
-To use the scanner, provide the target URL as a command-line argument.
+| Funcionalidade | Descrição | Status |
+|----------------|-----------|--------|
+|  **Teste de Conexão** | Verifica se o alvo está acessível | ✅ Implementado |
+|  **Deteção de Formulários** | Encontra e lista formulários HTML | ✅ Implementado |
+|  **Análise de Inputs** | Identifica campos de entrada | ✅ Implementado |
+|  **Payload Básico** | Testa `<script>alert('XSS')</script>` | ✅ Implementado |
+|  **Verificação de Reflexão** | Confirma se payload foi refletido | ✅ Implementado |
 
-Syntax:
-python xss_scanner.py <TARGET_URL>
+##  Instalação
 
-Example:
-python xss_scanner.py http://example.com
+### Pré-requisitos
 
-## HOW IT WORKS
-Connectivity Test: The script first attempts to establish a connection with the target to ensure it is reachable.
+- Python 3.6 ou superior
+- pip (gerenciador de pacotes Python)
 
-Form Discovery: It parses the HTML content using BeautifulSoup to identify all <form> elements, their methods (GET/POST), and input fields.
+### Passos de Instalação
 
-Payload Injection: It appends a basic XSS payload (<script>alert('XSS')</script>) to a test parameter in the URL.
-
-Reflection Check: It analyzes the server's response. If the exact payload string is found in the HTML source code, the script flags a potential vulnerability.
-
-## LIMITATIONS
-Simple Reflection: This version only tests for reflected XSS via the URL (GET method).
-
-No Automated Form Submission: It discovers forms but does not automatically submit payloads into every input field.
-
-WAF/Sanitization: Many modern web applications use Web Application Firewalls (WAF) or sanitization libraries that may block or encode this simple payload.
-
-Manual Verification: Findings should always be manually verified to confirm if the script is actually executed by a browser.
-
-## OUTPUT
-The script provides real-time feedback in the terminal, including:
-
-Connection status and HTTP codes.
-
-Detailed list of found forms and input types.
-
-Success or failure of the XSS reflection test.
+1. **Clone o repositório**
+```bash
+git clone https://github.com/seu-usuario/xss-scanner.git
+cd xss-scanner
