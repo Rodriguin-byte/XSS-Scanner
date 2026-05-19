@@ -23,3 +23,6 @@ Garante que tens o Python 3 instalado e as bibliotecas necessárias para o proce
 
 ```bash
 pip install requests beautifulsoup4
+
+Como Usar 
+python3 xss_scanner.py <URL_ALVO>
