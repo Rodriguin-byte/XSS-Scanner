@@ -1,40 +1,25 @@
-#  XSS Vulnerability Scanner - Simple Test Version
+# XSS Vulnerability Scanner (Versão de Teste)
 
-[![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)](CONTRIBUTING.md)
+![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)
 
-A simple and educational tool for detecting Cross-Site Scripting (XSS) vulnerabilities. Developed for learning purposes and authorized testing.
+Um script em Python simples e direto projetado para realizar testes básicos de vulnerabilidades de **Cross-Site Scripting (XSS)**. A ferramenta valida a conexão com o alvo, mapeia formulários HTML estruturais e testa se um payload padrão é refletido na resposta do servidor.
 
-##  About The Project
+> [!WARNING]
+> **AVISO LEGAL:** Este script foi desenvolvido exclusivamente para fins educacionais, laboratoriais e testes de segurança autorizados. O uso deste software contra alvos sem autorização prévia é ilegal.
 
-The XSS Scanner is a lightweight, didactic tool designed to help security students and professionals understand how XSS vulnerability detection works. This simple version demonstrates fundamental concepts of:
+---
 
--  **Form detection** on web pages
--  **Input field analysis** and parameters
--  **Basic XSS payload testing**
--  **Payload reflection verification** in responses
+## 🚀 Funcionalidades
 
-###  Current Features
+* **Validação de Conectividade:** Testa o estado do servidor web antes de iniciar a análise de vulnerabilidades.
+* **Mapeamento de Formulários HTML:** Localiza formulários na página principal, identificando os seus atributos (`action`, `method`) e os respetivos campos de entrada (`input`).
+* **Teste de Reflexão de Payload:** Envia um payload básico via parâmetro `GET` (`<script>alert('XSS')</script>`) e verifica se o mesmo é devolvido no corpo da resposta sem a devida higienização.
 
-| Feature | Description | Status |
-|---------|-----------|--------|
-|  **Connection Test** | Checks if target is accessible | ✅ Implemented |
-|  **Form Detection** | Finds and lists HTML forms | ✅ Implemented |
-|  **Input Analysis** | Identifies input fields | ✅ Implemented |
-|  **Basic Payload** | Tests `<script>alert('XSS')</script>` | ✅ Implemented |
-|  **Reflection Check** | Confirms if payload was reflected | ✅ Implemented |
+---
 
-##  Installation
+## 🛠️ Pré-requisitos & Instalação
 
-### Prerequisites
+Garante que tens o Python 3 instalado e as bibliotecas necessárias para o processamento HTTP e análise de HTML:
 
-- Python 3.6 or higher
-- pip (Python package manager)
-
-### Installation Steps
-
-1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/xss-scanner.git
-cd xss-scanner
+pip install requests beautifulsoup4
